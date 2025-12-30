@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Category {
   name: string;
@@ -30,54 +31,55 @@ const Categories = ({ categories }: CategoriesProps) => {
               SHOP BY CATEGORY
             </h2>
           </div>
-          <button className="nav-link flex items-center gap-2 mt-4 md:mt-0 group">
+          <Link to="/products" className="nav-link flex items-center gap-2 mt-4 md:mt-0 group">
             View All
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
+          </Link>
         </motion.div>
 
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[4/5]"
-            >
-              {/* Background Image */}
-              <motion.img
-                src={category.image}
-                alt={category.name}
-                className="absolute inset-0 w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-              />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+            <Link to="/products" key={category.name}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative group cursor-pointer overflow-hidden rounded-lg aspect-[4/5]"
+              >
+                {/* Background Image */}
+                <motion.img
+                  src={category.image}
+                  alt={category.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                />
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
 
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
-                  {category.name}
-                </h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">
-                    {category.count} Products
-                  </span>
-                  <motion.div
-                    className="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ArrowUpRight className="w-5 h-5 text-primary-foreground" />
-                  </motion.div>
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
+                    {category.name}
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">
+                      {category.count} Products
+                    </span>
+                    <motion.div
+                      className="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowUpRight className="w-5 h-5 text-primary-foreground" />
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
