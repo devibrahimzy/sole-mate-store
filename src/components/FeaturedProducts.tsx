@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 interface Product {
@@ -52,9 +53,9 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <button className="btn-outline">
+          <Link to="/products" className="btn-outline">
             View All Products
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

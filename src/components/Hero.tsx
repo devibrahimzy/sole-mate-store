@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HeroProps {
   heroImage: string;
@@ -57,13 +58,13 @@ const Hero = ({ heroImage }: HeroProps) => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="btn-primary flex items-center gap-2 group">
+            <Link to="/products" className="btn-primary flex items-center gap-2 group">
               Shop Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="btn-outline">
+            </Link>
+            <Link to="/products" className="btn-outline">
               Explore Collection
-            </button>
+            </Link>
           </motion.div>
 
           {/* Stats */}
