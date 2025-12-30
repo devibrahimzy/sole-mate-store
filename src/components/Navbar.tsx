@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShoppingBag, Search, Menu, X, User } from "lucide-react";
+import { ShoppingBag, Search, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -35,9 +35,6 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <button className="p-2 text-muted-foreground hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
-            </button>
-            <button className="p-2 text-muted-foreground hover:text-primary transition-colors hidden sm:block">
-              <User className="w-5 h-5" />
             </button>
             <button className="relative p-2 text-muted-foreground hover:text-primary transition-colors">
               <ShoppingBag className="w-5 h-5" />
